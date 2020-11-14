@@ -258,17 +258,20 @@ impl FullyConnectedNetwork {
                     activation_fn
                 )),
             }
-            self.delta[layer] = self.delta[layer + 1].dot(&self.w[layer + 1].t()) * &self.z[layer];// * self.learnrate;
+            self.delta[layer] = self.delta[layer + 1].dot(&self.w[layer + 1].t()) * &self.z[layer] * self.learnrate;
+            /*
             self.op[layer] = &self.op[layer] +  (&self.delta[layer].mapv(|a|a.powf(2.0f32)));
             let full_bottom_turn = (&self.op[layer] + 1e_8).mapv(f32::sqrt);
             let full_term = self.learnrate / full_bottom_turn;
-            
+            println!("{:?}", self.a[layer].shape());
             self.delta[layer] = &self.delta[layer] * &full_term;
 
             //Shitty local Adagrad
 
-
+            */
             let dw = &self.a[layer].t().dot(&self.delta[layer]);
+            //println!("{:?}", dw.shape());
+            //panic!("SDFSDF");
             self.w[layer] -= dw;
         }
     }
@@ -282,6 +285,10 @@ impl FullyConnectedNetwork {
                 self.z[layer] = self.a[layer].dot(&self.w[layer]);
                 let activation_fn = self.layers_cfg[layer].activation_function.as_str();
                 self.a[layer + 1] = self.z[layer].clone();
+                let nans : Vec<&f32> = self.a[layer + 1].iter().filter(|x|**x == f32::NAN).collect();
+                if nans.len() > 0 {
+                    panic!("Finally a Nan backprop");
+                }
                 match activation_fn {
                     "sigmoid" => {
                         // Single-threaded
@@ -302,7 +309,7 @@ impl FullyConnectedNetwork {
                         self.a[layer + 1].par_mapv_inplace(|x| linear(x));
                     },
                     "tanh" => {
-                        self.z[layer + 1].par_mapv_inplace(|x| tanh(x));
+                        self.a[layer + 1].par_mapv_inplace(|x| tanh(x));
                     }
                     _ => panic!(format!(
                         "This activation function ({}) is not supported",
@@ -406,4 +413,11 @@ impl FullyConnectedNetwork {
         self.forward_pass(0, number_of_examples);
         self.backwards_pass(0, number_of_examples);
     }
+
+    //This will copy the weights on this network into the weights of another network
+    //It is called "blind" because it will not check to see if it will fit, it will just copy
+    pub fn blind_copy(&self, other_network: &mut FullyConnectedNetwork) {
+        other_network.w = self.w.clone();
+    }
+
 }
