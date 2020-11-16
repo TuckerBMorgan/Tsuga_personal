@@ -2,6 +2,9 @@ use crate::activation_functions::*;
 use crate::fc_layer::*;
 use crate::*;
 
+#[macro_use]
+use serde::*;
+
 use indicatif::{ProgressBar, ProgressStyle};
 use rand::prelude::*;
 use std::iter::Iterator;
@@ -11,7 +14,23 @@ use std::time::Duration;
 
 use crossterm::event::{poll, read, Event, KeyCode};
 use crossterm::terminal::{disable_raw_mode, enable_raw_mode};
-use std::io::stdout;
+use std::fs;
+
+#[derive(Serialize, Deserialize)]
+struct SaveStruct {
+    pub weights: Vec<Vec<f32>>,
+    pub shapes: Vec<Vec<usize>>
+}
+
+impl SaveStruct {
+    pub fn new(weights: Vec<Vec<f32>>, shapes: Vec<Vec<usize>>) -> SaveStruct {
+        SaveStruct {
+            weights,
+            shapes
+        }
+    }
+}
+
 
 /// A fully-connected neural network
 #[derive(Debug, Clone)]
@@ -259,16 +278,20 @@ impl FullyConnectedNetwork {
                 )),
             }
             self.delta[layer] = self.delta[layer + 1].dot(&self.w[layer + 1].t()) * &self.z[layer] * self.learnrate;
-            /*
+            
             self.op[layer] = &self.op[layer] +  (&self.delta[layer].mapv(|a|a.powf(2.0f32)));
             let full_bottom_turn = (&self.op[layer] + 1e_8).mapv(f32::sqrt);
             let full_term = self.learnrate / full_bottom_turn;
             println!("{:?}", self.a[layer].shape());
+            println!("{:?}", self.delta[layer].shape());
+            println!("{:?}", full_term.shape());           
             self.delta[layer] = &self.delta[layer] * &full_term;
+            panic!("Hey Hey hey, good byte");
+
 
             //Shitty local Adagrad
 
-            */
+            
             let dw = &self.a[layer].t().dot(&self.delta[layer]);
             //println!("{:?}", dw.shape());
             //panic!("SDFSDF");
@@ -340,7 +363,6 @@ impl FullyConnectedNetwork {
             .slice(s![validation_floor..validation_ceiling, ..])
             .to_owned();
 
-        let _stdout = stdout();
         enable_raw_mode()?;
 
         let pb = ProgressBar::new(self.iterations as u64);
@@ -420,4 +442,22 @@ impl FullyConnectedNetwork {
         other_network.w = self.w.clone();
     }
 
+    pub fn fast_save(&self, name: &String) {
+        let mut weights = vec![];
+        let mut shapes = vec![];
+
+        for w in self.w.iter() {
+            weights.push(w.iter().map(|x|*x).collect::<Vec<f32>>());
+            shapes.push(w.shape().iter().map(|x|*x).collect::<Vec<usize>>());
+        }
+        let mut save_struct = SaveStruct::new(weights,shapes);
+        let as_string = serde_json::to_string(&save_struct).unwrap();
+        fs::write(name, as_string).expect("Unable to write file");
+    }
+
+    pub fn fast_load(&self, name: &String) {
+        let weights_as_shapes = fs::read_to_string(name).expect("Unable to read file"); 
+    }
+
 }
+
