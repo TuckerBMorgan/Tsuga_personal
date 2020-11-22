@@ -40,6 +40,8 @@ pub struct FullyConnectedNetwork {
     layers_cfg: Vec<FCLayer>, // configuration data used to build the network architecture
     z: Vec<Array2<f32>>,      // intermediate matrix products
     op: Vec<Array2<f32>>,     // holds the rolling gradients for Adagrad
+    momentum: Vec<Array2<f32>>,
+    momentum_rate: f32,
     pub w: Vec<Array2<f32>>,  // weight matrices
     a: Vec<Array2<f32>>,      // output layers
     delta: Vec<Array2<f32>>,  // the delta matrix for backpropogation
@@ -118,6 +120,8 @@ impl FullyConnectedNetwork {
             a: self.a,
             op: self.op,
             delta: self.delta,
+            momentum: self.momentum,
+            momentum_rate: self.momentum_rate,
             l: self.l,
             learnrate: self.learnrate,
             iterations: self.iterations,
@@ -143,6 +147,8 @@ impl FullyConnectedNetwork {
             a: vec![input.clone(), Array::zeros((o_n, o_m))],
             delta: vec![Array::zeros((o_n, o_m))],
             op: vec![Array::zeros((o_n, o_m))],
+            momentum: vec![Array::zeros((o_n, o_m))],
+            momentum_rate: 0.99,
             l: 2, // Remember, we're zero-indexing
             learnrate: 0.1,
             iterations: 100,
@@ -176,6 +182,7 @@ impl FullyConnectedNetwork {
         let mut a: Vec<Array2<f32>> = vec![Array::zeros((1, 1)); self.l]; // output layers, where a[0] is the input matrix, so it has the length `l`
         let mut delta: Vec<Array2<f32>> = vec![Array::zeros((1, 1)); self.l - 1]; // There is one less weight matrix than total layers in the network
         let mut op: Vec<Array2<f32>> = vec![Array::zeros((1, 1)); self.l - 1]; // There is one less weight matrix than total layers in the network
+        let mut momentum: Vec<Array2<f32>> = vec![Array::zeros((1, 1)); self.l - 1]; // There is one less weight matrix than total layers in the network
         a[0] = self.a[0]
             .clone()
             .slice(s![0..self.batch_size, ..])
@@ -193,7 +200,8 @@ impl FullyConnectedNetwork {
             z[i] = Array::zeros((a[i + 1].shape()[0], a[i + 1].shape()[1]));
             // let index = self.l - (i +1);
             delta[i] = Array::zeros((z[i].shape()[0], z[i].shape()[1]));
-            op[i] = Array::zeros((z[i].shape()[0], z[i].shape()[1]));
+            op[i] = Array::zeros((a[i].ncols(), self.layers_cfg[i].output_size));
+            momentum[i] = Array::zeros((a[i].ncols(), self.layers_cfg[i].output_size));
         }
 
         // Now that we've built a functioning system of z,w,a, and delta matrices, we'll
@@ -278,24 +286,16 @@ impl FullyConnectedNetwork {
                 )),
             }
             self.delta[layer] = self.delta[layer + 1].dot(&self.w[layer + 1].t()) * &self.z[layer] * self.learnrate;
-            
-            self.op[layer] = &self.op[layer] +  (&self.delta[layer].mapv(|a|a.powf(2.0f32)));
-            let full_bottom_turn = (&self.op[layer] + 1e_8).mapv(f32::sqrt);
-            let full_term = self.learnrate / full_bottom_turn;
-            println!("{:?}", self.a[layer].shape());
-            println!("{:?}", self.delta[layer].shape());
-            println!("{:?}", full_term.shape());           
-            self.delta[layer] = &self.delta[layer] * &full_term;
-            panic!("Hey Hey hey, good byte");
-
 
             //Shitty local Adagrad
-
-            
             let dw = &self.a[layer].t().dot(&self.delta[layer]);
-            //println!("{:?}", dw.shape());
-            //panic!("SDFSDF");
-            self.w[layer] -= dw;
+            self.op[layer] = &self.op[layer] + &dw.mapv(|x|x.powf(2.0f32));
+            let full_bottom_turn = (&self.op[layer] + 1e_8).mapv(f32::sqrt);
+            let full_term = self.learnrate / full_bottom_turn;
+
+            self.w[layer] -= &full_term;
+            //unused for now
+            self.momentum[layer] = dw * self.momentum_rate;
         }
     }
 
@@ -419,6 +419,8 @@ impl FullyConnectedNetwork {
         self.a.last().unwrap().clone()
     }
 
+    
+
     pub fn set_data(&mut self, input: Array2<f32>, output: Array2<f32>) {
         self.input = input;
         self.output = output;
@@ -450,11 +452,11 @@ impl FullyConnectedNetwork {
             weights.push(w.iter().map(|x|*x).collect::<Vec<f32>>());
             shapes.push(w.shape().iter().map(|x|*x).collect::<Vec<usize>>());
         }
-        let mut save_struct = SaveStruct::new(weights,shapes);
+        let save_struct = SaveStruct::new(weights,shapes);
         let as_string = serde_json::to_string(&save_struct).unwrap();
         fs::write(name, as_string).expect("Unable to write file");
     }
-
+ 
     pub fn fast_load(&self, name: &String) {
         let weights_as_shapes = fs::read_to_string(name).expect("Unable to read file"); 
     }

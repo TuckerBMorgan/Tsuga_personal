@@ -1,0 +1,11 @@
+/Users/hiroko/rl/Tsuga_personal/target/rls/debug/deps/futures_core-d68b4e2fab9f4636.rmeta: /Users/hiroko/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.8/src/lib.rs /Users/hiroko/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.8/src/future.rs /Users/hiroko/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.8/src/stream.rs /Users/hiroko/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.8/src/task/mod.rs /Users/hiroko/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.8/src/task/poll.rs /Users/hiroko/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.8/src/task/__internal/mod.rs /Users/hiroko/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.8/src/task/__internal/atomic_waker.rs
+
+/Users/hiroko/rl/Tsuga_personal/target/rls/debug/deps/futures_core-d68b4e2fab9f4636.d: /Users/hiroko/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.8/src/lib.rs /Users/hiroko/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.8/src/future.rs /Users/hiroko/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.8/src/stream.rs /Users/hiroko/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.8/src/task/mod.rs /Users/hiroko/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.8/src/task/poll.rs /Users/hiroko/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.8/src/task/__internal/mod.rs /Users/hiroko/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.8/src/task/__internal/atomic_waker.rs
+
+/Users/hiroko/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.8/src/lib.rs:
+/Users/hiroko/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.8/src/future.rs:
+/Users/hiroko/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.8/src/stream.rs:
+/Users/hiroko/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.8/src/task/mod.rs:
+/Users/hiroko/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.8/src/task/poll.rs:
+/Users/hiroko/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.8/src/task/__internal/mod.rs:
+/Users/hiroko/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.8/src/task/__internal/atomic_waker.rs:

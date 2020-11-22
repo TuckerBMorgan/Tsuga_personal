@@ -1,0 +1,34 @@
+TARGET = Some("x86_64-apple-darwin")
+OPT_LEVEL = Some("0")
+HOST = Some("x86_64-apple-darwin")
+CC_x86_64-apple-darwin = None
+CC_x86_64_apple_darwin = None
+HOST_CC = None
+CC = None
+CFLAGS_x86_64-apple-darwin = None
+CFLAGS_x86_64_apple_darwin = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+DEBUG = Some("true")
+CARGO_CFG_TARGET_FEATURE = Some("cmpxchg16b,fxsr,sse,sse2,sse3,ssse3")
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-fno-omit-frame-pointer" "-m64" "-arch" "x86_64" "-Wall" "-Wextra" "-mmacosx-version-min=10.10" "-o" "/Users/hiroko/rl/Tsuga_personal/target/rls/debug/build/minifb-c92020c8d4d5862f/out/src/native/macosx/MacMiniFB.o" "-c" "src/native/macosx/MacMiniFB.m"
+cargo:warning=src/native/macosx/MacMiniFB.m:426:38: warning: unused parameter 'window' [-Wunused-parameter]
+cargo:warning=void mfb_set_cursor_visibility(void *window, bool visibility)
+cargo:warning=                                     ^
+cargo:warning=1 warning generated.
+exit code: 0
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-fno-omit-frame-pointer" "-m64" "-arch" "x86_64" "-Wall" "-Wextra" "-mmacosx-version-min=10.10" "-o" "/Users/hiroko/rl/Tsuga_personal/target/rls/debug/build/minifb-c92020c8d4d5862f/out/src/native/macosx/OSXWindow.o" "-c" "src/native/macosx/OSXWindow.m"
+exit code: 0
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-fno-omit-frame-pointer" "-m64" "-arch" "x86_64" "-Wall" "-Wextra" "-mmacosx-version-min=10.10" "-o" "/Users/hiroko/rl/Tsuga_personal/target/rls/debug/build/minifb-c92020c8d4d5862f/out/src/native/macosx/OSXWindowFrameView.o" "-c" "src/native/macosx/OSXWindowFrameView.m"
+exit code: 0
+AR_x86_64-apple-darwin = None
+AR_x86_64_apple_darwin = None
+HOST_AR = None
+AR = None
+running: "ar" "crs" "/Users/hiroko/rl/Tsuga_personal/target/rls/debug/build/minifb-c92020c8d4d5862f/out/libminifb_native.a" "/Users/hiroko/rl/Tsuga_personal/target/rls/debug/build/minifb-c92020c8d4d5862f/out/src/native/macosx/MacMiniFB.o" "/Users/hiroko/rl/Tsuga_personal/target/rls/debug/build/minifb-c92020c8d4d5862f/out/src/native/macosx/OSXWindow.o" "/Users/hiroko/rl/Tsuga_personal/target/rls/debug/build/minifb-c92020c8d4d5862f/out/src/native/macosx/OSXWindowFrameView.o"
+exit code: 0
+cargo:rustc-link-lib=static=minifb_native
+cargo:rustc-link-search=native=/Users/hiroko/rl/Tsuga_personal/target/rls/debug/build/minifb-c92020c8d4d5862f/out
+cargo:rustc-link-lib=framework=Metal
+cargo:rustc-link-lib=framework=MetalKit
