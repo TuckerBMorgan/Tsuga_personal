@@ -1,0 +1,11 @@
+c:\Users\tucker_alt\rnn\Tsuga_personal\target\rls\debug\deps\futures_task-2162f6bec043adb3.rmeta: C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\futures-task-0.3.8\src\lib.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\futures-task-0.3.8\src\spawn.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\futures-task-0.3.8\src\future_obj.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\futures-task-0.3.8\src\noop_waker.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\futures-task-0.3.8\src\arc_wake.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\futures-task-0.3.8\src\waker.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\futures-task-0.3.8\src\waker_ref.rs
+
+c:\Users\tucker_alt\rnn\Tsuga_personal\target\rls\debug\deps\futures_task-2162f6bec043adb3.d: C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\futures-task-0.3.8\src\lib.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\futures-task-0.3.8\src\spawn.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\futures-task-0.3.8\src\future_obj.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\futures-task-0.3.8\src\noop_waker.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\futures-task-0.3.8\src\arc_wake.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\futures-task-0.3.8\src\waker.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\futures-task-0.3.8\src\waker_ref.rs
+
+C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\futures-task-0.3.8\src\lib.rs:
+C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\futures-task-0.3.8\src\spawn.rs:
+C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\futures-task-0.3.8\src\future_obj.rs:
+C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\futures-task-0.3.8\src\noop_waker.rs:
+C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\futures-task-0.3.8\src\arc_wake.rs:
+C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\futures-task-0.3.8\src\waker.rs:
+C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\futures-task-0.3.8\src\waker_ref.rs:

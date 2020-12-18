@@ -1,0 +1,10 @@
+c:\Users\tucker_alt\rnn\Tsuga_personal\target\rls\debug\deps\crc32fast-b6f699cb22502ab5.rmeta: C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\crc32fast-1.2.1\src\lib.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\crc32fast-1.2.1\src\baseline.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\crc32fast-1.2.1\src\combine.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\crc32fast-1.2.1\src\specialized\mod.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\crc32fast-1.2.1\src\table.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\crc32fast-1.2.1\src\specialized\pclmulqdq.rs
+
+c:\Users\tucker_alt\rnn\Tsuga_personal\target\rls\debug\deps\crc32fast-b6f699cb22502ab5.d: C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\crc32fast-1.2.1\src\lib.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\crc32fast-1.2.1\src\baseline.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\crc32fast-1.2.1\src\combine.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\crc32fast-1.2.1\src\specialized\mod.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\crc32fast-1.2.1\src\table.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\crc32fast-1.2.1\src\specialized\pclmulqdq.rs
+
+C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\crc32fast-1.2.1\src\lib.rs:
+C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\crc32fast-1.2.1\src\baseline.rs:
+C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\crc32fast-1.2.1\src\combine.rs:
+C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\crc32fast-1.2.1\src\specialized\mod.rs:
+C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\crc32fast-1.2.1\src\table.rs:
+C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\crc32fast-1.2.1\src\specialized\pclmulqdq.rs:

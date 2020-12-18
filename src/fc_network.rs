@@ -295,7 +295,10 @@ impl FullyConnectedNetwork {
 
             self.w[layer] -= &full_term;
             //unused for now
-            self.momentum[layer] = dw * self.momentum_rate;
+            //TODO: get this to work, I think I am not creating the right
+            //amount of layers
+            //Not creating the right a
+            //self.momentum[layer] = dw * self.momentum_rate;
         }
     }
 
@@ -419,8 +422,6 @@ impl FullyConnectedNetwork {
         self.a.last().unwrap().clone()
     }
 
-    
-
     pub fn set_data(&mut self, input: Array2<f32>, output: Array2<f32>) {
         self.input = input;
         self.output = output;
@@ -443,7 +444,19 @@ impl FullyConnectedNetwork {
     pub fn blind_copy(&self, other_network: &mut FullyConnectedNetwork) {
         other_network.w = self.w.clone();
     }
-
+    //This might solve some of the problems
+    
+        //This will copy the weights on this network into the weights of another network
+    //It is called "blind" because it will not check to see if it will fit, it will just copy
+    pub fn blind_copy_with_polyyak(&self, other_network: &mut FullyConnectedNetwork, polyyak_coefficent: f32) {
+        for i in 0..other_network.w.len() {
+            let other_network_layer = &other_network.w[i];
+            let self_network_layer = &self.w[i];
+            let result = other_network_layer * polyyak_coefficent + (1.0 - polyyak_coefficent) * self_network_layer;
+            other_network.w[i] = result;
+        }
+    }
+    
     pub fn fast_save(&self, name: &String) {
         let mut weights = vec![];
         let mut shapes = vec![];

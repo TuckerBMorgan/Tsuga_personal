@@ -1,0 +1,12 @@
+c:\Users\tucker_alt\rnn\Tsuga_personal\target\rls\debug\deps\cc-5e4665babe4e5b0e.rmeta: C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\lib.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\registry.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\winapi.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\com.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\setup_config.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\windows_registry.rs
+
+c:\Users\tucker_alt\rnn\Tsuga_personal\target\rls\debug\deps\libcc-5e4665babe4e5b0e.rlib: C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\lib.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\registry.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\winapi.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\com.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\setup_config.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\windows_registry.rs
+
+c:\Users\tucker_alt\rnn\Tsuga_personal\target\rls\debug\deps\cc-5e4665babe4e5b0e.d: C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\lib.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\registry.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\winapi.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\com.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\setup_config.rs C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\windows_registry.rs
+
+C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\lib.rs:
+C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\registry.rs:
+C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\winapi.rs:
+C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\com.rs:
+C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\setup_config.rs:
+C:\Users\tucker_alt\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.66\src\windows_registry.rs:
