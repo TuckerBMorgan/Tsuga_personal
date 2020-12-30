@@ -211,6 +211,7 @@ impl FullyConnectedNetwork {
         self.a = a;
         self.delta = delta;
         self.op = op;
+        self.momentum = momentum;
         self
     }
 
@@ -219,7 +220,6 @@ impl FullyConnectedNetwork {
     fn backwards_pass(&mut self, num: usize, batch_size: usize) {
         let alpha = self.l - 1; // The highest value of a.len() - 1 bc of zero indexing
         let bravo = self.l - 2;
-
         let error = &self.a[alpha] - &self.output.slice(s![num..num + batch_size, ..]);
         // Matching the proper activation function
         let activation_fn = self.layers_cfg[bravo].activation_function.as_str();
@@ -289,22 +289,20 @@ impl FullyConnectedNetwork {
 
             //Shitty local Adagrad
             let dw = &self.a[layer].t().dot(&self.delta[layer]);
+            /*
             self.op[layer] = &self.op[layer] + &dw.mapv(|x|x.powf(2.0f32));
             let full_bottom_turn = (&self.op[layer] + 1e_8).mapv(f32::sqrt);
             let full_term = self.learnrate / full_bottom_turn;
-
-            self.w[layer] -= &full_term;
-            //unused for now
-            //TODO: get this to work, I think I am not creating the right
-            //amount of layers
-            //Not creating the right a
-            //self.momentum[layer] = dw * self.momentum_rate;
+            self.momentum[layer] = dw * self.momentum_rate;
+*/
+            self.w[layer] -= dw;//&full_term;//&self.momentum[layer];
         }
     }
 
     /// Runs a forward pass on the fully-connected network, including each layer's activation function
     #[inline]
     fn forward_pass(&mut self, num: usize, batch_size: usize) {
+       
         if (num + batch_size) <= self.input.nrows() {
             self.a[0] = self.input.slice(s![num..num + batch_size, ..]).to_owned();
             for layer in 0..=(self.l - 2) {
